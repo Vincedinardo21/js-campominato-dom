@@ -30,7 +30,7 @@ switch(livello){
         break;
 }
 
-//let myNewArrayRandom = createRandomUniqueNumber(sizeGriglia, 1, 10);
+let myNewArrayRandom = createRandomUniqueNumber(16, 1, sizeGriglia);
 
 // Costruisco la griglia
 for(let i = 0; i < sizeGriglia; i++){
@@ -41,13 +41,17 @@ for(let i = 0; i < sizeGriglia; i++){
 
     divEl.addEventListener("click", 
         function(){
-            console.log("clicked");
-            this.classList.add("clicked");
+            if(showRandom === myNewArrayRandom[i]){
+                console.log("clicked");
+                this.classList.add("clicked");
+            }          
         }
     );
 
     griglia.append(divEl);      
 }
+
+console.log(myNewArrayRandom);
 
 // Le mie funzioni
 function createMyElement(){
@@ -63,14 +67,15 @@ function randomNumber(rangeMin, rangeMax){
 }
 
 // Creo un array contenente n numeri random
-// function createRandomUniqueNumber(numItems, min, max){
-//     let arrInt = [];
-//     while(arrInt.length < numItems){
-//         let randomUnIt = Math.floor(Math.random() * (max - min) + min);
-//         if(!arrInt.includes(randomUnIt)){
-//             arrInt.push(randomUnIt);
-//         }
-//     }
-//     return arrInt;
-// }
+function createRandomUniqueNumber(numItems, min, max){
+    let arrInt = [];
+    while(arrInt.length < numItems){
+        let randomUnIt = Math.floor(Math.random() * (max - min) + min);
+        if(!arrInt.includes(randomUnIt)){
+            arrInt.push(randomUnIt);
+        }
+    }
+    return arrInt;
+}
+
 
