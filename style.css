@@ -29,3 +29,7 @@
     flex-basis: calc(100% / 7);
     height: calc(100% / 7);
 }
+
+.clicked {
+    background-color: aqua;
+}

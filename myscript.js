@@ -13,6 +13,7 @@ do {
 // Analizzo i vari livelli
 switch(livello){
     case 1:
+    default:
         console.log("livello 1");
         sizeGriglia = 100; 
         qualeGriglia = "square1";
@@ -29,10 +30,23 @@ switch(livello){
         break;
 }
 
+//let myNewArrayRandom = createRandomUniqueNumber(sizeGriglia, 1, 10);
+
 // Costruisco la griglia
 for(let i = 0; i < sizeGriglia; i++){
     let divEl = createMyElement();
-    griglia.append(divEl);
+    let showRandom = randomNumber(1, sizeGriglia);
+    //showRandom = myNewArrayRandom[i];
+    divEl.append(showRandom);
+
+    divEl.addEventListener("click", 
+        function(){
+            console.log("clicked");
+            this.classList.add("clicked");
+        }
+    );
+
+    griglia.append(divEl);      
 }
 
 // Le mie funzioni
@@ -41,4 +55,22 @@ function createMyElement(){
     node.className = qualeGriglia;
     return node;
 }
+
+// Genero un numero random unico
+function randomNumber(rangeMin, rangeMax){
+    let rand = Math.floor(Math.random() * (rangeMax - rangeMin) + rangeMin);
+    return rand;
+}
+
+// Creo un array contenente n numeri random
+// function createRandomUniqueNumber(numItems, min, max){
+//     let arrInt = [];
+//     while(arrInt.length < numItems){
+//         let randomUnIt = Math.floor(Math.random() * (max - min) + min);
+//         if(!arrInt.includes(randomUnIt)){
+//             arrInt.push(randomUnIt);
+//         }
+//     }
+//     return arrInt;
+// }
 
